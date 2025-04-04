@@ -44,7 +44,7 @@ chat_id = None
 
 
 
-@Client.on_message(filters.command(["channelplaylist","cplaylist"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelplaylist","cplaylist"]) & filters.group & ~filters.forwarded)
 async def playlist(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
@@ -116,7 +116,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(filters.command(["channelcurrent","ccurrent"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelcurrent","ccurrent"]) & filters.group & ~filters.forwarded)
 async def ee(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
@@ -133,7 +133,7 @@ async def ee(client, message):
         await message.reply("Please turn on the voice chat first !")
 
 
-@Client.on_message(filters.command(["channelplayer","cplayer"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelplayer","cplayer"]) & filters.group & ~filters.forwarded)
 @authorized_users_only
 async def settings(client, message):
     playing = None
@@ -342,7 +342,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(filters.command(["channelplay","cplay"])  & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelplay","cplay"])  & filters.group & ~filters.forwarded)
 @authorized_users_only
 async def play(_, message: Message):
     global que
