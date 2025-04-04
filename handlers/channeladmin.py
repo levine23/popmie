@@ -11,7 +11,7 @@ from callsmusic import callsmusic
 
 
 
-@Client.on_message(filters.command(["channelpause","cpause"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelpause","cpause"]) & filters.group & ~filters.forwarded)
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
@@ -32,7 +32,7 @@ async def pause(_, message: Message):
         await message.reply_text("▶️ Music paused!")
 
 
-@Client.on_message(filters.command(["channelresume","cresume"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelresume","cresume"]) & filters.group & ~filters.forwarded)
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
@@ -53,7 +53,7 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ Music resumed!")
 
 
-@Client.on_message(filters.command(["channelend","cend"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelend","cend"]) & filters.group & ~filters.forwarded)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
@@ -77,7 +77,7 @@ async def stop(_, message: Message):
         await message.reply_text("⏹ Streaming ended!")
 
 
-@Client.on_message(filters.command(["channelskip","cskip"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelskip","cskip"]) & filters.group & ~filters.forwarded)
 @errors
 @authorized_users_only
 async def skip(_, message: Message):
