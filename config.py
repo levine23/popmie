@@ -8,7 +8,7 @@ if os.path.exists("local.env"):
 load_dotenv()
 que = {}
 admins = {}
-SESSION_NAME = getenv("SESSION_NAME", "session")
+SESSION_NAME = getenv("SESSION_NAME", "PopmieMusicBot")
 BOT_TOKEN = getenv("BOT_TOKEN", "7518391748:AAEpYu3JjrHbPewdWEj8lpQiOpyNTHSdQ60")
 BOT_NAME = getenv("BOT_NAME", "popmiemusic")
 BG_IMAGE = getenv("BG_IMAGE", "https://deposit.pictures/p/eb8812b8698440da9f7b7a1db9cac808")
