@@ -104,7 +104,7 @@ async def generate_cover(title, thumbnail):
     os.remove("background.png")
 
 
-@Client.on_message(command(["playlist", f"playlist@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["playlist", f"playlist@{BOT_USERNAME}"]) & filters.group & ~filters.forwarded)
 async def playlist(client, message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -169,7 +169,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(command(["player", f"player@{BOT_USERNAME}"]) & filters.group & ~filters.edited)
+@Client.on_message(command(["player", f"player@{BOT_USERNAME}"]) & filters.group & ~filters.forwarded)
 @authorized_users_only
 async def settings(client, message):
     playing = None
@@ -188,7 +188,7 @@ async def settings(client, message):
 
 
 @Client.on_message(
-    command(["musicpy", f"musicplayer@{BOT_USERNAME}"]) & ~filters.edited & ~filters.bot & ~filters.private
+    command(["musicpy", f"musicplayer@{BOT_USERNAME}"]) & ~filters.forwarded & ~filters.bot & ~filters.private
 )
 @authorized_users_only
 async def hfmm(_, message):
